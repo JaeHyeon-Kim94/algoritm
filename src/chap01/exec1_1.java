@@ -2,7 +2,7 @@ package chap01;
 
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
-
+//최댓값 구하기
 public class exec1_1 {
     public static void main(String[] args) throws InterruptedException {
         max3();

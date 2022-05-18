@@ -1,5 +1,5 @@
 package chap01;
-
+//구구단
 public class exec1_7 {
     public static void main(String[] args) {
         System.out.println("-------곱셈표-------");

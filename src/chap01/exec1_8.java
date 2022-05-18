@@ -1,7 +1,7 @@
 package chap01;
 
 import java.util.Scanner;
-
+//별찍기
 public class exec1_8 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
