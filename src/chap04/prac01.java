@@ -1,5 +1,7 @@
 package chap04;
 
+import java.util.EmptyStackException;
+
 public class prac01 {
     class IntStack{
         private int max;    //스택 용량
@@ -62,6 +64,28 @@ public class prac01 {
 
 
     }
+
+    class objStack<E>{
+        private int max;
+        private int ptr;
+        private E[] stk;
+
+        public objStack(int capacity){
+            this.max = capacity;
+        }
+
+        public E pop(){
+            if(ptr<=0) throw new EmptyStackException();
+            return stk[--ptr];
+        }
+
+        public int push(E e){
+            if(ptr >= max) throw new StackOverflowError();
+            stk[ptr] = e;
+            return ptr++;
+        }
+    }
+
 
     class EmptyIntStackException extends RuntimeException{
         public EmptyIntStackException() {
