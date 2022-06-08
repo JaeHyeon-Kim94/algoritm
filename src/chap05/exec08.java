@@ -13,8 +13,9 @@ public class exec08 {
 
     static void setPos(int i){
         for(int j=0; j<8; j++){
-            if (flag[j] == false) {
+            if(flag[j] == false){
                 pos[i] = j;
+
                 if(i == 7) print();
                 else{
                     flag[j] = true;
