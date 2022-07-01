@@ -14,19 +14,19 @@ public class prac05 {
         int left = 0;
         int right, last = right = n-1;
 
-        while(left < right){
-            for(int j = left; j<right; j++){
-                if(a[j] > a[j+1]){
-                    swap(a, j, j+1);
-                    last = j;
+        while(left<right){
+            for(int i=0; i<right; i++){
+                if(a[i] > a[i+1]){
+                    swap(a, i, i+1);
+                    last = i;
                 }
             }
             right = last;
 
-            for(int j = right; j>left; j--){
-                if(a[j-1] > a[j]){
-                    swap(a, j-1, j);
-                    last = j;
+            for(int i=right; i>left; i--){
+                if(a[i-1] > a[i]){
+                    swap(a, i-1, i);
+                    last = i;
                 }
             }
             left = last;

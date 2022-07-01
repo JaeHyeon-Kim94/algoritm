@@ -41,11 +41,11 @@ public class prac06 {
 
     static void insertionSort(int[] a, int n) {
         for(int i=2; i<n; i++){
-            int tmp = a[0] = a[i];
+            int tmp= a[0] = a[i];
 
             int j = i;
 
-            while(a[j-1] > tmp){
+            while(a[j-1]>tmp){
                 a[j] = a[j-1];
                 j--;
             }
@@ -55,11 +55,10 @@ public class prac06 {
 
     static void insertionSort_1(int[] a, int n){
         for(int i=1; i<n; i++){
-            int key = a[i];
             int l = 0;
             int r = i-1;
-            int c;
-            int idx;
+            int key = a[i];
+            int c, idx;
 
             do{
                 c = (l+r)/2;
@@ -73,7 +72,6 @@ public class prac06 {
                 a[j] = a[j-1];
             }
             a[idx] = key;
-
         }
     }
 
