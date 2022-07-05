@@ -1,6 +1,6 @@
 package chap06;
 
-public class exec6_8 {
+public class exec06_8 {
     static void swap(int[] a, int idx1, int idx2){
         int tmp = a[idx2];
         a[idx2] = a[idx1];
