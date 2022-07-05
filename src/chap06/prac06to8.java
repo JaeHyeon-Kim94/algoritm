@@ -2,13 +2,13 @@ package chap06;
 
 import java.util.Arrays;
 
-public class prac06 {
+public class prac06to8 {
     public static void swap(int[] a, int x, int y){
         int tmp = a[x];
         a[x] = a[y];
         a[y] = tmp;
     }
-
+    //선택 정렬
     static void sort(int[] a, int n){
         for(int i=0; i<n; i++){
             int min = i;
@@ -28,7 +28,7 @@ public class prac06 {
             swap(a, i, min);
         }
     }
-
+    //삽입 정렬
     static void sort_1(int[] a, int n){
         for(int i=1; i<n; i++){
             int j, tmp = a[i];
@@ -38,7 +38,7 @@ public class prac06 {
             a[j] = tmp;
         }
     }
-
+    //보초법
     static void insertionSort(int[] a, int n) {
         for(int i=2; i<n; i++){
             int tmp= a[0] = a[i];
@@ -52,7 +52,7 @@ public class prac06 {
             if(j>0) a[j] = tmp;
         }
     }
-
+    //이진 검색을 이용한 삽입 정렬
     static void insertionSort_1(int[] a, int n){
         for(int i=1; i<n; i++){
             int l = 0;
