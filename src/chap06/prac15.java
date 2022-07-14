@@ -100,9 +100,9 @@ public class prac15 {
     }
 
     public static void main(String[] args) {
-        int[] a2 = new int[]{2, -9, 0, 5, 12, -25, 22, 9, 8, 12};
-        quickSort_recursive(a2, 0, 9);
+        int[] a = new int[]{31, 5, 63, 19, 38, 53, 13, 29, 68, 33, 61, 55, 96, 86};
+        quickSort_recursive(a, 0, 9);
         System.out.println();
-        System.out.println(Arrays.toString(a2));
+        System.out.println(Arrays.toString(a));
     }
 }
