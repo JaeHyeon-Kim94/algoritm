@@ -36,6 +36,10 @@ public class prac05 {
         }
     }
 
+    static void recur3(int n){
+        
+    }
+
     public static void main(String[] args) {
         recur2_1(8);
     }
