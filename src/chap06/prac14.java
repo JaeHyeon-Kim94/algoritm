@@ -35,80 +35,79 @@ public class prac14 {
         }
     }
 
-    static void quickSort_recursive(int[] a, int left, int right){
+    static void quickSort_non_recursive(int[] a, int left, int right){
         if(right - left < 9){
             insertionSort(a, left, right);
-            System.out.printf("[%d]부터 [%d]까지 삽입 정렬(%s)\n", left, right, "재귀");
-        }else {
+        }else{
             int l = left;
             int r = right;
-            System.out.printf("[%d]부터 [%d]까지 퀵정렬(%s)\n", l, r, "재귀");
-            int pivot = getMedian(a[l], a[(l+r)/2], a[r]);
+            int pivot = getMedian(a[l], a[(l + r)/2], a[r]);
 
-            do {
-                while (a[l] < pivot) l++;
-                while (a[r] > pivot) r--;
-                if (l <= r) swap(a, l++, r--);
-            } while (l <= r);
+            do{
+                while(a[l] < pivot) l++;
+                while(a[r] > pivot) r--;
+                if(l<=r) swap(a, l++, r--);
+            }while(l<=r);
 
-            if (left < r) quickSort_recursive(a, left, r);
-            if (l < right) quickSort_recursive(a, l, right);
+            if(r - left > right - l){
+                int tmp;
+                tmp = right;
+                right = r;
+                r = tmp;
+
+                tmp = left;
+                left = l;
+                l = tmp;
+            }
+
+            if(right > l) quickSort_non_recursive(a, l, right);
+            if(r > left) quickSort_non_recursive(a, left, r);
         }
     }
 
-    static void quickSort_non_recursive(int[] a, int left, int right) throws Exception {
-        Stack lStk = new Stack(right - left + 1);
-        Stack rStk = new Stack(right - left + 1);
+    static void quickSort_recursive(int[] a, int left, int right) throws Exception {
+        Stack lstk = new Stack(right - left + 1);
+        Stack rstk = new Stack(right - left + 1);
 
-        lStk.push(left);
-        rStk.push(right);
+        lstk.push(left);
+        rstk.push(right);
 
-        while(!lStk.isEmpty()){
-            int l = left = (int) lStk.pop();
-            int r = right = (int) rStk.pop();
+        while(!lstk.isEmpty()){
+            int l = left = (int) lstk.pop();
+            int r = right = (int) rstk.pop();
+
             if(r - l < 9){
-                insertionSort(a, l ,r);
-                System.out.printf("[%d]부터 [%d]까지 삽입 정렬(%s)\n", l, r, "비재귀");
-            }else {
-                System.out.printf("[%d]부터 [%d]까지 퀵정렬(%s)\n", l, r, "비재귀");
-                int pivot = getMedian(a[l], a[(l+r)/2], a[r]);
+                insertionSort(a, l, r);
+            }else{
+                int pivot = getMedian(a[l], a[(l + r)/2], a[r]);
 
-                do {
-                    while (a[l] < pivot) l++;
-                    while (a[r] > pivot) r--;
-                    if (l <= r) swap(a, l++, r--);
-                } while (l <= r);
+                do{
+                    while(a[l] < pivot) l++;
+                    while(a[r] > pivot) r--;
+                    if(l<=r) swap(a, l++, r--);
+                }while(l<=r);
 
                 if(r - left > right - l){
-                    System.out.println("교체 시작");
                     int tmp;
                     tmp = right;
                     right = r;
                     r = tmp;
 
-                    tmp = l;
-                    l = left;
-                    left = tmp;
+                    tmp = left;
+                    left = l;
+                    l = tmp;
                 }
 
-                if(l < right){
-                    lStk.push(l);
-                    rStk.push(right);
+                if(right > l){
+                    lstk.push(l);
+                    rstk.push(right);
                 }
-                if(left < r){
-                    lStk.push(left);
-                    rStk.push(r);
+                if(r > left){
+                    lstk.push(left);
+                    rstk.push(r);
                 }
-
             }
         }
-    }
-
-    public static void main(String[] args) {
-        int[] a2 = new int[]{2, -9, 0, 5, 12, -25, 22, 9, 8, 12};
-        quickSort_recursive(a2, 0, 9);
-        System.out.println();
-        System.out.println(Arrays.toString(a2));
     }
 }
 
